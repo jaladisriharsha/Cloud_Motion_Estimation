@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Mar 21 14:40:44 2021
-
-@author: mounika
-"""
 ########################################################
 # flownet+brightness consistency loss fn + image warping
 ######################################################## 
