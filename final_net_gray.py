@@ -298,10 +298,6 @@ class Net(object):
                tf.summary.scalar('loss2', loss2)
                tf.summary.scalar('loss1', loss1)
                tf.summary.scalar('loss', self.loss)
-            
-            #self.loss = self.charbonnier(self.x1,self.x2, self.predict1)
-            #self.loss = self.mean_loss(self.x3, self.predict1)
-            
                self.merged = tf.summary.merge_all() #tf.summary.all_v2_summary_ops()
             
         optimizer = tf.train.AdamOptimizer(self.lr)
@@ -372,27 +368,7 @@ def main():
                     predict = ndimage.median_filter(predict, size=5)
                     x2_t = im_warp(x2_t, predict) 
                     
-                    # p6, p5,p4, p3, p2, p1 = sess.run([model.predict6, model.predict5, model.predict4, model.predict3, model.predict2, model.predict1], feed_dict)
-                    # fig, (ax1, ax2, ax3,ax4) =  plt.subplots(1, 4, figsize=(18, 18))
-                
-                                
-                    # ax1.imshow(flow_to_image(x3_t[0,:,:,:]))
-                    # ax1.set_axis_off()
-                
-                    # ax2.imshow(flow_to_image(p3[0,:,:,:]))
-                    # ax2.set_axis_off()
-                
-                    # ax3.imshow(flow_to_image(p2[0,:,:,:]))
-                    # ax3.set_axis_off()
-                
-                    # ax4.imshow(flow_to_image(p1[0,:,:,:]))
-                    # ax4.set_axis_off()
-                
-                    # plt.title('%3d epoch, %03d iter, %03d loop' % (epoch+1, iteration+1, loop+1))
-                    # plt.show()
-                # i1_t, i2_t, i3_t = dataset_t.downscaled(predict)
-                # feed_dict = {model.x1: i1_t, model.x2: i2_t, model.x3: i3_t, model.lr:lr}
-                # _, merged_out_t2, loss_out_t2 = sess.run([model.train_op, model.merged, model.loss], feed_dict)
+                    
                
                 
                 writer_train.add_summary(merged_out_t, global_step = global_iter + 1)
